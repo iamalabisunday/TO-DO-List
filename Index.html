@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO-DO List</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Link for the Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Link for the Font-Family -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content-container">
+        <div class="heading">
+          <h1 class="head-text">TO-DO List 📝</h1>
+          <d iv class="search-btn-container">
+            <input type="text" name="text" id="search" class="search" placeholder="Add your task" />
+            <button type="button" class="search-btn" id="searchBtn">Add Task</button>
+          </d>
+        </div>
+        <div class="main-body" id="mainBody">
+          <!-- Re-build with JavaScript Document -->
+          <div class="task-container">
+            <div class="check-text">
+              <img src="./Uncheck.svg" alt="check" id="check" class="check" />
+              <div class="task-txt">
+                <p class="Paratxt" id="ParaText">Book reading</p>
+              </div>
+            </div>
+            <div class="edit-cancel">
+              <img src="./tabler_edit.svg" alt="edit" id="edit" class="edit" />
+              <img src="./gravity-ui_delete.svg" alt="delete" id="cancel" class="cancel" />
+            </div>
+          </div>
+          <!-- //*****************************// -->
+        </div>
+      </div>
+    </div>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>
