@@ -1,20 +1,24 @@
-// Create a new store.js file to centralize shared state
-// This file will export shared variables and functions
+// Array to store tasks
+export let tasks = [];
 
-// DOM elements that need to be accessed across modules
-export const inputSearch = document.getElementById("search");
-export const mainBody = document.getElementById("mainBody");
-
-// Tasks array from localStorage
-export const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
-// Function to save tasks to localStorage
-export function saveTasks() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+// Load tasks from localStorage
+export function loadTasks() {
+  const savedTasks = localStorage.getItem("todoTasks");
+  if (savedTasks) {
+    tasks = JSON.parse(savedTasks);
+  }
 }
 
-// Import renderTasks to avoid circular dependency
+// Save tasks to localStorage
+export function saveTasks() {
+  localStorage.setItem("todoTasks", JSON.stringify(tasks));
+}
+
+// Import the renderTasks function to avoid circular dependencies
 import renderTasksFunction from "./renderTasks.js";
 
-// Export renderTasks function
+// Export the renderTasks function
 export const renderTasks = renderTasksFunction;
+
+// Load tasks immediately when this module is imported
+loadTasks();

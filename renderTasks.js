@@ -6,6 +6,12 @@ function renderTasks() {
   // Get the mainBody element
   const mainBody = document.getElementById("mainBody");
 
+  // If mainBody doesn't exist, exit early
+  if (!mainBody) {
+    console.error("Main body element not found");
+    return;
+  }
+
   // Clear the main body first
   mainBody.innerHTML = "";
 

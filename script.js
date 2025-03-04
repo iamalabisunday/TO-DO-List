@@ -1,27 +1,32 @@
-// import Section
-import createTaskElement from "./createTask.js";
-import renderTasks from "./renderTasks.js";
+import {renderTasks} from "./store.js";
 import addTask from "./addTask.js";
-import toggleTaskCompletion from "./toggleTask.js";
 
-// DOM Section
-const inputSearch = document.getElementById(`search`);
-const searchButton = document.getElementById(`searchBtn`);
-const checkBox = document.getElementById(`check`);
-const paraText = document.getElementById(`ParaText`);
-const editButton = document.getElementById(`edit`);
-const deleteButton = document.getElementById(`cancel`);
-const mainBody = document.getElementById(`mainBody`);
+// Initial render of tasks when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // DOM Section - moved inside DOMContentLoaded to ensure elements exist
+  const inputSearch = document.getElementById("search");
+  const searchButton = document.getElementById("searchBtn");
+  const overdeleteContainer = document.querySelector(".overdelete-container");
 
-// Event listener for add task button
-searchButton.addEventListener("click", () => addTask(inputSearch));
-
-// Event listener for enter key in input field
-inputSearch.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    addTask();
+  // Hide the overdelete container by default
+  if (overdeleteContainer) {
+    overdeleteContainer.style.display = "none";
   }
-});
 
-// Initial render of tasks
-document.addEventListener("DOMContentLoaded", renderTasks);
+  // Event listener for add task button
+  if (searchButton) {
+    searchButton.addEventListener("click", () => addTask(inputSearch));
+  }
+
+  // Event listener for enter key in input field
+  if (inputSearch) {
+    inputSearch.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        addTask(inputSearch);
+      }
+    });
+  }
+
+  // Render tasks
+  renderTasks();
+});
