@@ -320,3 +320,11 @@
     margin-left: 0.625rem;
   }
 }
+.overdelete-container {
+  width: 100%;
+  height: 100vh;
+}
+.overdelete-content {
+  min-width: 20rem;
+  height: auto;
+}
